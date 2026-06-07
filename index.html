@@ -22,7 +22,6 @@
             padding: 16px;
         }
 
-        /* No outer frame - just clean pink background */
         .game-container {
             max-width: 100%;
             width: 100%;
@@ -54,7 +53,6 @@
             font-weight: 500;
         }
 
-        /* Wider game area - no frame, just open space */
         .game-area {
             position: relative;
             min-height: 55vh;
@@ -81,7 +79,6 @@
             font-size: 52px;
         }
 
-        /* Basket / counter area */
         .basket-area {
             background: rgba(255, 220, 230, 0.9);
             border-radius: 60px;
@@ -144,7 +141,7 @@
             width: 100%;
             padding: 18px;
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.55;
             border-radius: 32px;
             border: 2px solid #ffb7c5;
             background: #fffef7;
@@ -191,7 +188,6 @@
             display: block;
         }
 
-        /* Message above video - smaller size */
         .message-final {
             font-size: 1.3rem;
             background: #ffd9e4;
@@ -254,7 +250,7 @@
             <img src="https://media1.tenor.com/m/SUIofc38H9UAAAAC/big-house-the-notebook.gif" alt="The Notebook">
         </div>
 
-        <textarea id="apologyMessage" class="apology-text" rows="7" readonly placeholder="Loading..."></textarea>
+        <textarea id="apologyMessage" class="apology-text" rows="10" readonly></textarea>
         
         <button id="goToVideoBtn" class="final-btn">one last thing before you leave</button>
     </div>
@@ -263,7 +259,6 @@
     <div id="videoPage" class="game-container" style="display: none;">
         <h1>one last thing...</h1>
         
-        <!-- Text message moved ABOVE video, smaller size -->
         <div class="message-final">
             Text me, I miss you fr
         </div>
@@ -281,11 +276,9 @@
 </div>
 
 <script>
-    // ---------- IMMEDIATE SPAWN: items visible right when page opens ----------
     const gameArea = document.getElementById('gameArea');
     const collectedSpan = document.getElementById('collectedCount');
     let collected = 0;
-    let currentItems = [];
     const TOTAL_ITEMS = 7;
 
     const icons = ['🐶', '🐕', '🐩', '🐕‍🦺', '🌷', '🌸', '🌺', '🌼'];
@@ -386,21 +379,9 @@
         }, 300);
     }
 
-    // Your apology message (EDIT THIS WITH YOUR REAL LETTER)
+    // YOUR FINAL MESSAGE - exactly as you wrote it
     window.addEventListener('load', () => {
-        // 👇👇👇 REPLACE THIS TEXT WITH YOUR REAL APOLOGY 👇👇👇
-        const yourMessage = `Omontle,
-
-I've sat with this for longer than I want to admit. I was distant when you needed me close. I disappeared when you deserved consistency. There's no excuse for that.
-
-I don't expect anything from you. I just needed you to know that I finally understand how much I hurt you. And I'm truly sorry.
-
-I've been working on myself. Not to get you back — because you don't owe me that — but because I never want to be that person again.
-
-You still cross my mind every single day.
-
-Take your time.`;
-        // 👆👆👆 REPLACE UP TO HERE 👆👆👆
+        const yourMessage = `Hey, ik you're probably sick of my ass at this point and rightfully so lmao. BUT, I just want you to hear me out on some genuine shii fr, no overly long sad ass paragraph like last time lmaoo. It's easy for someone to only see where they went wrong or their many, many fuck ups when that rush of emotion comes through and they're on the verge of actually losing someone and so I understand why you felt the way you did that night. All I'm here to say is that I really did sit with everything for a minute; I mean shit, not a single day goes by where I don't think about you or what happened. I didn't quite understand why, as stupid and bluntly obvious as it was, I didn't get it. And for a while I went through many phases yk, the usual confusion, anger, denial, bargaining and lots, and lots and LOTSS of sadness, shiii things were darkkkk bruh. I wasn't joking when I said I'm the most persistent man you'll ever meet. Anyways what I'm getting at here is that some people are worth changing, doing better, and fighting for. I mean I really dgaf about embarrassing myself at this point, forget the mystery, forget the aura farming fr!!!, I miss you and I'd be a fool to not AT LEAST try again even if it ends with you probably mizing me or me ending up as a CFs or gc screenshot lmaooo. I know things can't just magically go back to normal but it's worth a shot because I wanna be the one to give you the better treatment you deserve, the consistency I should've put in a long time ago. Maybe I'm selfish for this but I don't want you getting it from anyone else when I'm here fr so text me back, the kids miss you.`;
         
         const textarea = document.getElementById('apologyMessage');
         if (textarea) {
@@ -415,15 +396,12 @@ Take your time.`;
         letterContainer.style.display = "none";
         videoContainer.style.display = "block";
         
-        // Reload TikTok embed for fresh load
         const script = document.createElement('script');
         script.src = "https://www.tiktok.com/embed.js";
         document.body.appendChild(script);
     });
 
-    // SPAWN EVERYTHING INSTANTLY when page loads
     window.addEventListener('load', () => {
-        // Give the game area 1 frame to get proper dimensions, then spawn
         requestAnimationFrame(() => {
             spawnAllItemsImmediately();
         });
