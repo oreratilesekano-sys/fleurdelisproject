@@ -120,11 +120,14 @@
             border-radius: 32px;
             padding: 12px;
             margin: 20px 0;
+            display: flex;
+            justify-content: center;
         }
 
-        iframe {
+        .music-player iframe {
             border-radius: 20px;
             max-width: 100%;
+            height: 150px;
         }
 
         .gif-box {
@@ -213,6 +216,7 @@
             h1 { font-size: 1.7rem; }
             .basket-area { padding: 8px 20px; gap: 12px; }
             .counter { font-size: 1.3rem; padding: 2px 16px; }
+            .music-player iframe { height: 130px; }
         }
     </style>
 </head>
@@ -237,12 +241,15 @@
     <div id="letterStage" class="game-container" style="display: none;">
         <h1>WAIT hear me out rq...</h1>
         
+        <!-- Apple Music Embed - These Arms of Mine -->
         <div class="music-player">
-            <iframe style="border-radius:12px" 
-                    src="<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4skknrc3sJqaPTtUr2cwFq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>" 
-                    width="100%" height="80" frameBorder="0" 
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-inline" 
-                    loading="lazy">
+            <iframe 
+                allow="autoplay *; encrypted-media *;" 
+                frameborder="0" 
+                height="150" 
+                style="width:100%;max-width:660px;overflow:hidden;background:transparent;" 
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                src="https://embed.music.apple.com/za/album/these-arms-of-mine/995810749?i=995810868">
             </iframe>
         </div>
 
@@ -260,7 +267,7 @@
         <h1>one last thing...</h1>
         
         <div class="message-final">
-            Text me, I miss you fr
+            can the queen let me back in the program?🥹
         </div>
         
         <div class="video-container">
